@@ -38,15 +38,16 @@ if (orderForm) {
     };
 
     try {
-      const res = await fetch(SCRIPT_URL, {
+      await fetch(SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
         headers: {
           "Content-Type": "application/json"
+        },
         body: JSON.stringify(payload)
       });
-      const result = await res.json();
-      alert(`สั่งซื้อสำเร็จ! รหัสคำสั่งซื้อของคุณคือ: ${result.orderId}`);
+      
+      alert("สั่งซื้อสำเร็จ! ระบบบันทึกคำสั่งซื้อเรียบร้อยแล้ว");
       orderForm.reset();
       calculateTotal();
     } catch (err) {
